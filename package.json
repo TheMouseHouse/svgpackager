@@ -1,0 +1,29 @@
+{
+  "name": "svgpackager",
+  "version": "0.0.1",
+  "description": "Optimizes and packages many SVG's into single JSON or CSS files.",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheMouseHouse/svgpackager.git"
+  },
+  "keywords": [
+    "svg",
+    "package",
+    "icons",
+    "css"
+  ],
+  "author": "Piotr Skonieczny <piosko@themousehouse.pl> (http://themousehouse.pl/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheMouseHouse/svgpackager/issues"
+  },
+  "homepage": "https://github.com/TheMouseHouse/svgpackager",
+  "dependencies": {
+    "base64-js": "0.0.8",
+    "svgo": "^0.5.1"
+  }
+}
