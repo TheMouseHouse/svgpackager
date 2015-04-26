@@ -4,7 +4,7 @@
   "description": "Optimizes and packages many SVG's into single JSON or CSS files.",
   "main": "./lib/svgpackager",
   "bin": {
-    "svgpackager": "./bin/svgpackager"
+    "svgp": "./bin/svgp"
   },
   "scripts": {
     "test": "test"
