@@ -1,4 +1,5 @@
-# svgpackager (svgp)
+svgpackager (svgp)
+==================
 
 This tool gathers all your SVG from a source folder and packages them all into a JSON file and a CSS file.
 
@@ -15,68 +16,96 @@ Package name = myPackage.
 
 CSS will become `.myPackage .icon-clock {}`
 
-### Install
-```
+Install
+-------
     npm install -g svgpackager
+
+
+Options
+-------
+```
+--source      Source directory  [Default: path of current working directory]
+--dest        Output directory  [Default: path of current working directory]
+--package     Source directory  [Default: current working directory]
+--prefixsvg   Prefixes the SVG content with data:image/svg+xml;utf8,  [Default: true]
+--output      Will output the defined file. [Options: all | json | css]  [Default: all]
+--base64      Will encode SVG content to Base64
+--debug       Dry run. Outputs options to console without saving files.
 ```
 
-### Usage
+Usage
+-----
 ```
-    svgp [source dir] [destination dir] [package name] [options]
+svgp [source dir] [destination dir] [package name] [options]
 ```
 
 Examples:
 
 If your are in the folder where your source SVG files are then just run:
 ```
-    svgp
+svgp
 ```
 
 If your sources are in the folder `svg` and you want to package them into the `build` folder, just run:
 ```
-    svgp svg build
+svgp --source=svg --dest=build
 ```
 
 You can use absolute paths:
 ```
-    svgp C:\path\to\my\svg\files C:\path\to\my\build\folder
+svgp --source=C:\path\to\my\svg\files --dest=C:\path\to\my\build\folder
 ```
 
 Name you package by adding a third parameter:
 ```
-    svgp svg build myPackageName
+svgp --source=svg --dest=build --package=myPackageName
 ```
 
 If you just want the JSON file, add the `--json` option...
 ```
-    svgp svg build --json
+svgp --source=svg --dest=build --json
 ```
 
 ... and similar with the CSS file, if you just want the CSS, add `--css`
 ```
-    svgp svg build --css
+svgp --source=svg --dest=build --css
 ```
 
 If you wish to encode the SVG data to base64, add the `--base64` option:
 ```
-    svgp svg build --base64
+svgp --source=svg --dest=build --base64
 ```
 The default setting is `base64=false` which outputs a normal utf8 string. Base64 outputs a larger file, but I included this option if anyone wants it.
 
 
-### Future
+Future
+------
 * I might add recursive traversal of folders so that you can run the packager once in a folder with a number of folders, and automatically create the packages from the folder names found.
 
-* I'll try to add some tests. I hate tests. If anybody feels like writing tests, just send me a pull request :D
+* I'll try to add some tests. I hate tests. If anybody feels like writing tests, just let me know :D
 
 * Grunt / Gulp integration.
 
 
-### Licence
-MIT
+Licence
+-------
+MIT © The Mouse House - 2015
 
-### Changes
-* v0.0.4 - Fixed bug where current working directory was not being correctly defined.
-* v0.0.3 - Enable tool from command line.
-* v0.0.2 - Creates destination directory if does not exist.
-* v0.0.1 - Basic functionality.
+Changes
+-------
+*v0.0.5*  
+Added [nomnom](https://www.npmjs.com/package/nomnom) package for arguments/options.  
+Refactored arguments.  
+Added new `--output` and `--debug` options.
+
+*v0.0.4*  
+Fixed bug where current working directory was not being correctly defined.  
+
+*v0.0.3*  
+Enable tool from command line.
+
+*v0.0.2*  
+Creates destination directory if does not exist.
+
+*v0.0.1*  
+Basic functionality.
