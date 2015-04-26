@@ -1,6 +1,6 @@
 {
   "name": "svgpackager",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Optimizes and packages many SVG's into single JSON or CSS files.",
   "main": "./lib/svgpackager",
   "bin": {

@@ -76,6 +76,7 @@ The default setting is `base64=false` which outputs a normal utf8 string. Base64
 MIT
 
 ### Changes
+* v0.0.4 - Fixed bug where current working directory was not being correctly defined.
 * v0.0.3 - Enable tool from command line.
 * v0.0.2 - Creates destination directory if does not exist.
 * v0.0.1 - Basic functionality.
