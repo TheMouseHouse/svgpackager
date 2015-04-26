@@ -99,8 +99,8 @@ function Processor() {
 		var fileContent,
 		    background,
 		    selector  = '.' + _pkg + ' .' + _file,
-		    width     = 'width:' + _data.info.width + 'px;',
-			height    = 'height:' + _data.info.height + 'px;',
+		    width     = 'width:' + _data.info.width + ';',
+			height    = 'height:' + _data.info.height + ';',
 		    minWidth  = 'min-' + width,
 		    minHeight = 'min-' + height,
 			overflow  = 'overflow:hidden;';
@@ -131,6 +131,10 @@ function svgp() {
 		    SVGO = require('svgo'),
 		    svgo = new SVGO(/*{ custom config object }*/);
 
+        if(!Fs.existsSync(Path.resolve(dest))){
+            Fs.mkdirSync(Path.resolve(dest));
+        }
+
 		if(processor.flags.base64) {
 			var base64js = require('base64-js');
 		}
@@ -146,6 +150,9 @@ function svgp() {
 					var byteArray = new Buffer(optimized.data, 'utf8');
 					optimized.base64 = base64js.fromByteArray(byteArray);
 				}
+                optimized.info.width += 'px';
+                optimized.info.height += 'px';
+
 				data[cssName] = optimized;
 			});
 		}
@@ -162,7 +169,7 @@ function svgp() {
 			    cssFile = dest + '/' + pkg + '.css';
 
 			for(i in data) {
-				css = css + processor.createCssProperties(pkg, i, data[i]);
+				css += processor.createCssProperties(pkg, i, data[i]);
 			}
 
 			processor.writeFile(cssFile, css);
