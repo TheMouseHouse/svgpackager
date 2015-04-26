@@ -1,4 +1,4 @@
-# svgpackager
+# svgpackager (svgp)
 
 This tool gathers all your SVG from a source folder and packages them all into a JSON file and a CSS file.
 
@@ -22,44 +22,44 @@ CSS will become `.myPackage .icon-clock {}`
 
 ### Usage
 ```
-    svgpackager [source dir] [destination dir] [package name] [options]
+    svgp [source dir] [destination dir] [package name] [options]
 ```
 
 Examples:
 
 If your are in the folder where your source SVG files are then just run:
 ```
-    svgpackager
+    svgp
 ```
 
 If your sources are in the folder `svg` and you want to package them into the `build` folder, just run:
 ```
-    svgpackager svg build
+    svgp svg build
 ```
 
 You can use absolute paths:
 ```
-    svgpackager C:\path\to\my\svg\files C:\path\to\my\build\folder
+    svgp C:\path\to\my\svg\files C:\path\to\my\build\folder
 ```
 
 Name you package by adding a third parameter:
 ```
-    svgpackager svg build myPackageName
+    svgp svg build myPackageName
 ```
 
 If you just want the JSON file, add the `--json` option...
 ```
-    svgpackager svg build --json
+    svgp svg build --json
 ```
 
 ... and similar with the CSS file, if you just want the CSS, add `--css`
 ```
-    svgpackager svg build --css
+    svgp svg build --css
 ```
 
 If you wish to encode the SVG data to base64, add the `--base64` option:
 ```
-    svgpackager svg build --base64
+    svgp svg build --base64
 ```
 The default setting is `base64=false` which outputs a normal utf8 string. Base64 outputs a larger file, but I included this option if anyone wants it.
 
@@ -76,5 +76,6 @@ The default setting is `base64=false` which outputs a normal utf8 string. Base64
 MIT
 
 ### Changes
+* v0.0.3 - Enable tool from command line.
 * v0.0.2 - Creates destination directory if does not exist.
 * v0.0.1 - Basic functionality.
