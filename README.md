@@ -33,7 +33,7 @@ Options
 --debug       Dry run. Outputs options to console without saving files.
 ```
 
-Usage
+Usage - Stand alone
 -----
 ```
 svgp [source dir] [destination dir] [package name] [options]
@@ -77,6 +77,24 @@ svgp --source=svg --dest=build --base64
 ```
 The default setting is `base64=false` which outputs a normal utf8 string. Base64 outputs a larger file, but I included this option if anyone wants it.
 
+Usage - via require()
+---------------------
+You can pass only the options needed. Below is just an example of all available options.
+
+```
+var svgp = require('svgpackager'),
+    path = require('path');
+
+svgp.pack({
+    source: 'path\to\svg\files',
+    dest: 'output\folder\to\save\files',
+    package: 'myPackageName',
+    prefixsvg: true,
+    output: 'all',
+    base64: true,
+    debug: true
+});
+```
 
 Future
 ------
@@ -93,6 +111,10 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
+*v0.0.6*  
+Added support for use in other npm packages via require();  
+Fixed options bug when using *svgpackager* via require();
+
 *v0.0.5*  
 Added [nomnom](https://www.npmjs.com/package/nomnom) package for arguments/options.  
 Refactored arguments.  
