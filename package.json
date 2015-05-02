@@ -1,6 +1,6 @@
 {
   "name": "svgpackager",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Optimizes and packages many SVG's into single JSON or CSS files.",
   "main": "./lib/svgpackager",
   "bin": {
@@ -27,6 +27,7 @@
   "homepage": "https://github.com/TheMouseHouse/svgpackager",
   "dependencies": {
     "base64-js": "0.0.8",
+    "colors": "^1.1.0",
     "nomnom": "^1.8.1",
     "svgo": "^0.5.1"
   }

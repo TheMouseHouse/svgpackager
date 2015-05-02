@@ -30,7 +30,7 @@ Options
 --prefixsvg   Prefixes the SVG content with data:image/svg+xml;utf8,  [Default: true]
 --output      Will output the defined file. [Options: all | json | css]  [Default: all]
 --base64      Will encode SVG content to Base64
---debug       Dry run. Outputs options to console without saving files.
+--debug       Dry run. Outputs data to console without saving files.
 ```
 
 Usage - Stand alone
@@ -110,8 +110,12 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
+*v0.0.8*  
+Outputing more info to console during packaging.  
+
+
 *v0.0.7*  
-Fixed minor typos.
+Fixed minor typos.  
 
 *v0.0.6*  
 Added support for use in other npm packages via require();  
