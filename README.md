@@ -31,6 +31,7 @@ Options
 --output      Will output the defined file. [Options: all | json | css]  [Default: all]
 --base64      Will encode SVG content to Base64
 --debug       Dry run. Outputs data to console without saving files.
+--silent      No output will be logged to console.
 ```
 
 Usage - Stand alone
