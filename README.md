@@ -28,6 +28,7 @@ Options
 --dest        Output directory  [Default: path of current working directory]
 --package     Source directory  [Default: current working directory]
 --prefixsvg   Prefixes the SVG content with data:image/svg+xml;utf8,  [Default: true]
+--prefix      Prefixes all files with given string.  [Default: '']
 --output      Will output the defined file. [Options: all | json | css]  [Default: all]
 --base64      Will encode SVG content to Base64
 --debug       Dry run. Outputs data to console without saving files.
@@ -102,7 +103,11 @@ Future
 
 * I'll try to add some tests. I hate tests. If anybody feels like writing tests, just let me know :D
 
-* Grunt / Gulp integration.
+* Better Grunt / Gulp integration.
+
+* Custom CSS injection.
+
+* Generate HTML file displaying all generated SVG on one page.
 
 
 Licence
@@ -111,8 +116,10 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
-*v0.0.8*  
-Outputing more info to console during packaging.  
+*v0.0.8*
+Fixed generated CSS!
+Added file/class prefixing eg. all CSS classes for individual files can be prefixed to .prefix-filename {}
+Outputing more/better info to console during packaging.
 
 
 *v0.0.7*  
