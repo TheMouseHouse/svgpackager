@@ -28,7 +28,7 @@ Options
 --dest        Output directory  [Default: path of current working directory]
 --package     Source directory  [Default: current working directory]
 --prefixsvg   Prefixes the SVG content with data:image/svg+xml;utf8,  [Default: true]
---prefix      Prefixes all files with given string.  [Default: '']
+--prefix      All CSS classes for individual files will be prefixed to .prefix-filename {}  [Default: '']  
 --output      Will output the defined file. [Options: all | json | css]  [Default: all]
 --base64      Will encode SVG content to Base64
 --debug       Dry run. Outputs data to console without saving files.
@@ -47,7 +47,7 @@ If your are in the folder where your source SVG files are then just run:
 ```
 svgp
 ```
-
+##### --source and --dest
 If your sources are in the folder `svg` and you want to package them into the `build` folder, just run:
 ```
 svgp --source=svg --dest=build
@@ -58,26 +58,83 @@ You can use absolute paths:
 svgp --source=C:\path\to\my\svg\files --dest=C:\path\to\my\build\folder
 ```
 
-Name you package by adding a third parameter:
+##### --package
+Name your package by adding a third parameter:
 ```
 svgp --source=svg --dest=build --package=myPackageName
 ```
 
+##### --prefixsvg
+Default: true  
+Will prefix the SVG or Base64 data with `data:image/svg+xml;utf8,` or `data:image/svg+xml;base64,` respectively.
+
+##### --json
 If you just want the JSON file, add the `--json` option...
 ```
 svgp --source=svg --dest=build --json
 ```
 
+##### --css
 ... and similar with the CSS file, if you just want the CSS, add `--css`
 ```
 svgp --source=svg --dest=build --css
 ```
 
+##### --base64
 If you wish to encode the SVG data to base64, add the `--base64` option:
 ```
 svgp --source=svg --dest=build --base64
 ```
 The default setting is `base64=false` which outputs a normal utf8 string. Base64 outputs a larger file, but I included this option if anyone wants it.
+
+##### --prefix
+Default: Blank string.  
+Option used to prefix all class names.
+If left as blank string, a global style will be created using file names as CSS class names...
+```
+.package .filename_1,
+.package .filename_2,
+.package .filename_3
+/* ... all file names ... */
+{
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+    vertical-align: middle;
+}
+
+.package .filename_1 {
+    /* ... */
+}
+.package .filename_2 {
+    /* ... */
+}
+.package .filename_3 {
+    /* ... */
+}
+```
+ However, if prefix is defined then a global style will created using the following selectors. Therefore, `--prefix=icon-` will produce the following CSS:
+```
+.package [class^=".icon-"],
+.package [class*=" .icon-"] {
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center center;
+    vertical-align: middle;
+}
+
+.package .icon-filename_1 {
+    /* ... */
+}
+.package .icon-filename_2 {
+    /* ... */
+}
+.package .icon-filename_3 {
+    /* ... */
+}
+```
 
 Usage - via require()
 ---------------------
@@ -91,9 +148,11 @@ svgp.pack({
     dest:      'output\folder\to\save\files',
     package:   'myPackageName',
     prefixsvg: true,
+    prefix:    'icon-',
     output:    'all',
     base64:    true,
-    debug:     true
+    debug:     true,
+    silent:    true
 });
 ```
 
@@ -116,9 +175,14 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
-*v0.0.8*
-Fixed generated CSS!
-Added file/class prefixing eg. all CSS classes for individual files can be prefixed to .prefix-filename {}
+*v1.0.0*  
+Fixed typos and updated README  
+Released as version 1.
+
+
+*v0.0.8*  
+Fixed generated CSS!  
+Added file/class prefixing eg. all CSS classes for individual files can be prefixed to .prefix-filename {}  
 Outputing more/better info to console during packaging.
 
 
