@@ -175,6 +175,10 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
+*v1.0.1*  
+Added ability to pass callback as second argument when using `require('svgpackager').pack(options, callback);`  
+
+
 *v1.0.0*  
 Fixed typos and updated README  
 Released as version 1.

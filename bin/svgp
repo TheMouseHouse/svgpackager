@@ -2,9 +2,9 @@
 
 'use strict';
 
-var Path    = require('path'),
-	Fs      = require('fs'),
-	options = require('../lib/options.js').get(),
-	lib     = Path.join(Path.dirname(Fs.realpathSync(__filename)), '../lib');
+var Path     = require('path'),
+	Fs       = require('fs'),
+	options  = require('../lib/options.js').get(),
+	lib      = Path.join(Path.dirname(Fs.realpathSync(__filename)), '../lib');
 
-require(lib + '/svgpackager.js').pack(options);
+require(lib + '/svgpackager.js').pack(options, callback);
