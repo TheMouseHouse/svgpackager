@@ -1,6 +1,9 @@
 svgpackager (svgp)
 ==================
 
+#####UPDATE! - Grunt plugin now available!!  
+[grunt-svgpackager](https://www.npmjs.com/package/grunt-svgpackager) - https://www.npmjs.com/package/grunt-svgpackager
+
 This tool gathers all your SVG from a source folder and packages them all into a JSON file and a CSS file.
 
 All arguments are optional. If no arguments are passed, this packager will use the current working directory as the source and destination, and the name of the directory will become the package name.
@@ -68,16 +71,18 @@ svgp --source=svg --dest=build --package=myPackageName
 Default: true  
 Will prefix the SVG or Base64 data with `data:image/svg+xml;utf8,` or `data:image/svg+xml;base64,` respectively.
 
-##### --json
-If you just want the JSON file, add the `--json` option...
-```
-svgp --source=svg --dest=build --json
-```
+##### --output
+Default value: `'all'`  
 
-##### --css
-... and similar with the CSS file, if you just want the CSS, add `--css`
+Setting this to `'json'` will generate only the JSON file.  
+Setting this to `'css'` will generate only the CSS file.  
+Of course, `'all'` will generate both JSON and CSS.  
+
 ```
-svgp --source=svg --dest=build --css
+svgp --source=svg --dest=build --output=json
+```
+```
+svgp --source=svg --dest=build --output=css
 ```
 
 ##### --base64
@@ -91,7 +96,7 @@ The default setting is `base64=false` which outputs a normal utf8 string. Base64
 Default: Blank string.  
 Option used to prefix all class names.
 If left as blank string, a global style will be created using file names as CSS class names...
-```
+```css
 .package .filename_1,
 .package .filename_2,
 .package .filename_3
@@ -115,7 +120,7 @@ If left as blank string, a global style will be created using file names as CSS 
 }
 ```
  However, if prefix is defined then a global style will created using the following selectors. Therefore, `--prefix=icon-` will produce the following CSS:
-```
+```css
 .package [class^=".icon-"],
 .package [class*=" .icon-"] {
     display: inline-block;
@@ -140,12 +145,12 @@ Usage - via require()
 ---------------------
 You can pass only the options needed. Below is just an example of all available options.
 
-```
+```js
 var svgp = require('svgpackager');
 
 svgp.pack({
-    source:    'path\to\svg\files',
-    dest:      'output\folder\to\save\files',
+    source:    'path/to/svg/files',
+    dest:      'output/folder/to/save/files',
     package:   'myPackageName',
     prefixsvg: true,
     prefix:    'icon-',
@@ -162,7 +167,7 @@ Future
 
 * I'll try to add some tests. I hate tests. If anybody feels like writing tests, just let me know :D
 
-* Better Grunt / Gulp integration.
+* Gulp plugin - Grunt plugin available here: https://www.npmjs.com/package/grunt-svgpackager
 
 * Custom CSS injection.
 
@@ -175,6 +180,10 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
+*v1.0.2*  
+Fixed documentation.  
+Added info concerning [grunt-svgpackager](https://www.npmjs.com/package/grunt-svgpackager) - https://www.npmjs.com/package/grunt-svgpackager  
+
 *v1.0.1*  
 Added ability to pass callback as second argument when using `require('svgpackager').pack(options, callback);`  
 
