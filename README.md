@@ -180,6 +180,10 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
+*v1.0.3*  
+Fixed global class names ie. removed .svg extention.  
+Checks if older CSS or JSON file exists then removes it if found.  
+
 *v1.0.2*  
 Fixed documentation.  
 Added info concerning [grunt-svgpackager](https://www.npmjs.com/package/grunt-svgpackager) - https://www.npmjs.com/package/grunt-svgpackager  
