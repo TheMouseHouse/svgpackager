@@ -1,7 +1,7 @@
-svgpackager (svgp)
+svgpackager (svgp) - v1.1.0
 ==================
 
-#####UPDATE! - Grunt plugin now available!!  
+##### UPDATE! - Grunt plugin now available!!  
 [grunt-svgpackager](https://www.npmjs.com/package/grunt-svgpackager) - https://www.npmjs.com/package/grunt-svgpackager
 
 This tool gathers all your SVG from a source folder and packages them all into a JSON file and a CSS file.
@@ -180,6 +180,9 @@ MIT © The Mouse House - 2015
 
 Changes
 -------
+*v1.1.0*  
+Fixed failure when desitantion not found. Creates destination using [mkdirp](https://www.npmjs.com/package/mkdirp).  
+
 *v1.0.3*  
 Fixed global class names ie. removed .svg extention.  
 Checks if older CSS or JSON file exists then removes it if found.  
